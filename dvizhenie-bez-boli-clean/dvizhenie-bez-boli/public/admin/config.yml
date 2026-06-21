@@ -1,0 +1,40 @@
+backend:
+  name: github
+  repo: your-github-login/dvizhenie-bez-boli
+  branch: main
+
+media_folder: public/images
+public_folder: /images
+locale: ru
+
+collections:
+  - name: pain
+    label: Разделы боли
+    folder: content/pain
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Заголовок, name: title, widget: string }
+      - { label: Описание, name: description, widget: text }
+      - { label: URL, name: slug, widget: string }
+      - { label: Текст, name: body, widget: markdown }
+  - name: videos
+    label: Видео
+    folder: content/videos
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Название, name: title, widget: string }
+      - { label: Категория, name: category, widget: select, options: [Шея, Спина, Голова, Нервы, Суставы] }
+      - { label: YouTube/Rutube URL, name: url, widget: string, required: false }
+      - { label: Описание, name: description, widget: text }
+  - name: exercises
+    label: Упражнения
+    folder: content/exercises
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Название, name: title, widget: string }
+      - { label: Раздел, name: category, widget: string }
+      - { label: Повторения, name: dose, widget: string }
+      - { label: Инструкция, name: body, widget: markdown }
